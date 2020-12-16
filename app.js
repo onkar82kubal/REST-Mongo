@@ -16,11 +16,13 @@ mongoose.connect('mongodb+srv://onkark:' + process.env.MONGO_ATLAS_PW +'@node-re
 
 );
 
- app.use(morgan('dev'));
- app.use(bodyParser.urlencoded({extended: false}));
- app.use(bodyParser.json());
+mongoose.Promise = global.Promise;
 
- app.use((req,res,next) => {
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.use((req,res,next) => {
  	res.header('Access-Control-Allow-Origin','*');
  	res.header('Access-Control-Allow-Header',
  		'Origin,X-Requested-With,Content-Type,Accept,Authorization');
