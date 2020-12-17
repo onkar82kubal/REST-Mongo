@@ -12,9 +12,10 @@ const userRoutes = require('./api/routes/user');
 mongoose.connect('mongodb+srv://onkark:' + process.env.MONGO_ATLAS_PW +'@node-rest-shop.7xzwz.mongodb.net/shop?retryWrites=true&w=majority',
 	 { 
 	 	useNewUrlParser: true ,
-	 	useUnifiedTopology: true
+	 	useUnifiedTopology: true,
+	 	useFindAndModify: false,
+	 	useCreateIndex: true
 	 }
-
 );
 
 mongoose.Promise = global.Promise;
