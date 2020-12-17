@@ -19,6 +19,7 @@ mongoose.connect('mongodb+srv://onkark:' + process.env.MONGO_ATLAS_PW +'@node-re
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
+app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
